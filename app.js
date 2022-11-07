@@ -25,7 +25,7 @@ app.post('/login', (req,res)=>{
     const userPass=req.body.password
     console.log(userName, userPass)
     const query ="SELECT title FROM User WHERE username='"+userName+"' AND password ='"+userPass+"'";
-    
+    console.log(query)
     db.get(query, function(err,row){
         if(err){
             console.log('ERROR', err)

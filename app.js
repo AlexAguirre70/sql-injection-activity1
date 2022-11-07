@@ -8,7 +8,7 @@ const app = express();
 
 app.use(express.static('.'))
 app.use(bodyParser.urlencoded({extended:true}))
-app.use(bodyParser.json)
+app.use(bodyParser.json())
 
 const db= new sqlite3.Database(':memory:');
 db.serialize(function(){
@@ -21,10 +21,11 @@ app.get('/', (req,res)=>{
 })
 app.post('/login', (req,res)=>{
     
-    const userName=req.body.userName
+    const userName=req.body.username
     const userPass=req.body.password
     console.log(userName, userPass)
     const query ="SELECT title FROM User WHERE username='"+userName+"' AND password ='"+userPass+"'";
+    
     db.get(query, function(err,row){
         if(err){
             console.log('ERROR', err)

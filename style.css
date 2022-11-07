@@ -5,3 +5,11 @@ button {
     background-color: darkgreen;
     color: white;
 }
+.unauthorized {
+    color:rgb(105, 0, 0);
+    font-size: 1.25em;
+}
+.error {
+    color:red;
+    font-size: 1.25em;
+}
